@@ -6,6 +6,38 @@ const FULL_HEART = '♥'
 
 
 
+function callServ() {
+ 
+  mimicServerCall()
+  .then(function(){
+   console.log('Success')     
+  })
+
+  .catch(function(error) {
+    showPageError(error);
+    setTimeout(()=>(hidPageError()),5000);
+    //console.log(error.message);
+  });
+}
+
+function showPageError(rerror){
+  element = document.getElementById("modal");
+  element.classList.remove("hidden");
+  elementError = document.getElementById("error");
+  elementError.innerHTML = rerror;
+}
+
+function hidPageError(){
+  element = document.getElementById("modal");
+  element.classList.add("hidden");
+}
+
+callServ();
+
+
+
+
+
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
